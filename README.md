@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site
+- [Live Site](https://rokandic.github.io/newsletter-sign-up-with-success-message/)
 
 ### Built with
 
