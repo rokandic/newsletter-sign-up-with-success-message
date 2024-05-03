@@ -6,11 +6,8 @@ const isProduction = process.env.NODE_ENV === "production";
 let nextConfig = {};
 
 if (isProduction) {
-  nextConfig = {
-    basePath: isProduction ? "/newsletter-sign-up-with-success-message" : "",
-    assetPrefix: isProduction
-      ? "/newsletter-sign-up-with-success-message/"
-      : "",
+  const nextConfig = {
+    basePath: process.env.BASEPATH,
     output: "export",
     reactStrictMode: true,
   };
