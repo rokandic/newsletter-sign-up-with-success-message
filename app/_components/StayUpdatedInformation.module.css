@@ -1,0 +1,39 @@
+@value breakpoints: "./../breakpoints.module.css";
+@value desktopBreakpoint from breakpoints;
+@value h1, p, gradientButton from "./../shared.module.css";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.title {
+  composes: h1;
+}
+
+.text {
+  composes: p;
+}
+
+.container ul {
+  padding: 0rem 0;
+}
+
+.container li {
+  list-style: none;
+  background: url("/icon-list.svg") no-repeat;
+  padding: 0rem 0rem 0.5rem 2.25rem;
+  line-height: 1.5rem;
+}
+
+@media desktopBreakpoint {
+  .container {
+    gap: 1.3rem;
+    margin-top: -1rem;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+}

@@ -1,0 +1,49 @@
+@value breakpoints: "./../breakpoints.module.css";
+@value desktopBreakpoint from breakpoints;
+@value h1, p, gradientButton from "./../shared.module.css";
+
+.mainContainer {
+  max-width: 24.5rem;
+  min-height: 33rem;
+  background-color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  composes: h1;
+  line-height: 2.5rem;
+}
+
+.text {
+  composes: p;
+}
+
+.iconContainer {
+  position: relative;
+  width: 4rem;
+  height: 5rem;
+}
+
+.dismissBtn {
+  composes: gradientButton;
+}
+
+@media desktopBreakpoint {
+  .mainContainer {
+    max-width: 36.5rem;
+    border-radius: 2rem;
+    padding: 2.5rem 4rem;
+    min-height: 35.5rem;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+}

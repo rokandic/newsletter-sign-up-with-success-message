@@ -1,0 +1,2 @@
+@value mobileBreakpoint: screen and (max-width: 56rem);
+@value desktopBreakpoint: screen and (min-width: 57rem);

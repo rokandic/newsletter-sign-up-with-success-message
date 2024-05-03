@@ -1,0 +1,12 @@
+@value breakpoints: "./../breakpoints.module.css";
+@value desktopBreakpoint from breakpoints;
+
+.headerImg {
+  object-fit: cover;
+}
+
+@media desktopBreakpoint {
+  .headerImg {
+    object-fit: cover;
+  }
+}

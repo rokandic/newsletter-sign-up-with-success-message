@@ -1,95 +1,66 @@
-import Image from "next/image";
+"use client";
 import styles from "./page.module.css";
+import StayUpdatedInformation from "./_components/StayUpdatedInformation";
+import Banner from "./_components/Banner";
+import EmailForm from "./_components/EmailForm";
+import Footer from "./_components/Footer";
+import ThankYou from "./_components/thankYou";
+import { useState } from "react";
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+  const [email, setEmail] = useState<string>("");
+
+  function isEmail(emailValue: string): boolean {
+    const emailRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    return emailRegex.test(emailValue);
+  }
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
+    event.preventDefault();
+
+    if (event.target instanceof HTMLFormElement) {
+      const form: HTMLFormElement = event.target;
+      const emailInput: HTMLInputElement = form.email;
+
+      if (isEmail(emailInput.value)) {
+        emailInput.setCustomValidity("");
+        setEmail(emailInput.value);
+      } else {
+        emailInput.setCustomValidity("Please provide a valid email address");
+      }
+      emailInput.reportValidity();
+    }
+  }
+
+  if (!isEmail(email)) {
+    // Subscribe form
+    return (
+      <div className={styles.pageContainer}>
+        <div></div>
+        <main className={styles.mainContainer}>
+          <Banner
+            mobileImg="/illustration-sign-up-mobile.svg"
+            desktopImg="/illustration-sign-up-desktop.svg"
+            altText="Desktop apps with progress bar"
+          />
+
+          <article className={styles.informationContainer}>
+            <StayUpdatedInformation />
+            <EmailForm submitFn={handleSubmit} />
+          </article>
+        </main>
+        <Footer />
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+    );
+  } else {
+    // Success message
+    return (
+      <div className={styles.pageContainer}>
+        <div></div>
+        <ThankYou email={email} />
+        <Footer />
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+    );
+  }
 }

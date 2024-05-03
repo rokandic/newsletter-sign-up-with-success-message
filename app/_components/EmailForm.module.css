@@ -1,0 +1,67 @@
+@value gradientButton from "./../shared.module.css";
+
+.emailForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: first baseline;
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+.addressLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  letter-spacing: 0.03rem;
+}
+
+.errorText {
+  color: var(--tomato);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.inputField {
+  width: 100%;
+  font-size: 1rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--grey);
+  font-family: var(--font-roboto), sans-serif;
+  outline: 0;
+}
+
+.inputField::placeholder {
+  color: var(--grey);
+}
+
+.inputField:hover,
+.inputField:focus {
+  border: 1px solid var(--dark-slate-grey);
+}
+
+.inputField:hover {
+  cursor: pointer;
+}
+
+.subscribeBtn {
+  composes: gradientButton;
+}
+
+/* INVALID STATES */
+.addressLabel:has(+ .inputField:not(:focus):invalid) {
+  & .errorText {
+    visibility: visible;
+  }
+}
+
+.inputField:not(:focus):invalid {
+  background-color: var(--tomato-transparent);
+  color: var(--tomato);
+  border: 1px solid var(--tomato);
+}

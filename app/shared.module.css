@@ -1,0 +1,43 @@
+.gradientButton {
+  text-decoration: none;
+
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--white);
+
+  width: 100%;
+  padding: 1.1rem 0;
+  border-radius: 10px;
+  border: 0px;
+  margin-top: 0.5rem;
+
+  background: var(--orange-gradient);
+  background-size: 0%;
+  background-repeat: no-repeat;
+  background-color: var(--dark-slate-grey);
+  box-shadow: 0.2rem 1rem 1.5rem rgba(255, 84, 118, 0%);
+
+  transition: all 0.4s ease;
+}
+
+.gradientButton:hover {
+  cursor: pointer;
+  background: var(--orange-gradient);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: var(--dark-slate-grey);
+  transition: all 0.5s ease;
+  box-shadow: 1rem 1rem 1.5rem var(--pink-shadow);
+}
+
+.h1 {
+  font-size: 2.5rem;
+  color: var(--dark-slate-grey);
+}
+
+.p {
+  color: var(--dark-slate-grey);
+  line-height: 1.5rem;
+}
