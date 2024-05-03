@@ -39,11 +39,7 @@ export default function Home() {
       <div className={styles.pageContainer}>
         <div></div>
         <main className={styles.mainContainer}>
-          <Banner
-            mobileImg="/illustration-sign-up-mobile.svg"
-            desktopImg="/illustration-sign-up-desktop.svg"
-            altText="Desktop apps with progress bar"
-          />
+          <Banner />
 
           <article className={styles.informationContainer}>
             <StayUpdatedInformation />

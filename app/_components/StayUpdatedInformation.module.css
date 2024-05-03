@@ -22,7 +22,7 @@
 
 .container li {
   list-style: none;
-  background: url("/icon-list.svg") no-repeat;
+  background: url("./../_images/icon-list.svg") no-repeat;
   padding: 0rem 0rem 0.5rem 2.25rem;
   line-height: 1.5rem;
 }

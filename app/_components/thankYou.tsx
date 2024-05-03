@@ -1,11 +1,12 @@
 import Image from "next/image";
 import styles from "./thankYou.module.css";
+import iconSuccess from "./../_images/icon-success.svg";
 
 export default function ThankYouMessage({ email }: { email: string }) {
   return (
     <main className={styles.mainContainer}>
       <div className={styles.iconContainer}>
-        <Image fill src="/icon-success.svg" alt="Success check icon" />
+        <Image fill src={iconSuccess.src} alt="Success check icon" />
       </div>
       <h1 className={styles.title}>Thanks for subscribing!</h1>
       <p>

@@ -7,7 +7,8 @@ let nextConfig = {};
 
 if (isProduction) {
   const nextConfig = {
-    basePath: process.env.BASEPATH,
+    basePath: "/newsletter-sign-up-with-success-message",
+    assetPrefix: "/newsletter-sign-up-with-success-message/",
     output: "export",
     reactStrictMode: true,
   };
