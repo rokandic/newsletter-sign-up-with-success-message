@@ -8,6 +8,9 @@ let nextConfig = {};
 if (isProduction) {
   nextConfig = {
     basePath: isProduction ? "/newsletter-sign-up-with-success-message" : "",
+    assetPrefix: isProduction
+      ? "/newsletter-sign-up-with-success-message/"
+      : "",
     output: "export",
     reactStrictMode: true,
   };
