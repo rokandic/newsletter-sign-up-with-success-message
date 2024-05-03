@@ -6,7 +6,7 @@ const isProduction = process.env.NODE_ENV === "production";
 let nextConfig = {};
 
 if (isProduction) {
-  const nextConfig = {
+  nextConfig = {
     basePath: "/newsletter-sign-up-with-success-message",
     assetPrefix: "/newsletter-sign-up-with-success-message/",
     output: "export",
