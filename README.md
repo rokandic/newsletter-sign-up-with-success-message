@@ -48,7 +48,7 @@ I decided to validate myself using JavaScript, since there's only one element to
 
 I spent some time to figure out how to define and work with event types in TypeScript. I tried to avoid using "any" whenever possible and did my best to properly define types and learn more about TypeScript.
 
-Since I am also a React beginner, I also experimented with how to structure components and tried to make the best use of states. Though I decided to handle form submission in the main parent component, I am still learning about which component is the best place to handle different events.
+Since I also just started using React, I also experimented with how to structure components and tried to make the best use of states. Though I decided to handle form submission in the main parent component, I am still learning about which component is the best place to handle different events.
 
 ### Continued development
 
